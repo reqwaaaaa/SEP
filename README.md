@@ -152,6 +152,10 @@ npm run build
 访问 `http://localhost:8081/auth/init-admin` 重置管理员密码
 
 ### 2. 前端请求404
-确保后端服务已启动在8081端口
+确保后端服务已启动在`8081`端口
 
 ### 3. [后端链接](https://github.com/reqwaaaaa/SEP_Vue)
+
+## *项目开发流程（Updating）*
+
+### 
