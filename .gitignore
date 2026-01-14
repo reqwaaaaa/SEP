@@ -1,0 +1,9 @@
+# Project exclude paths
+/sep-application/target/
+/sep-auth/target/
+/sep-cms/target/
+/sep-common/target/
+/sep-gateway/target/
+/sep-learning/target/
+/sep-recruitment/target/
+/sep-system/target/

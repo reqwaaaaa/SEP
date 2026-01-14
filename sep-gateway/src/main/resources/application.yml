@@ -1,0 +1,64 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: sep-gateway
+  cloud:
+    gateway:
+      routes:
+        # 认证服务
+        - id: auth-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/auth/**
+          filters:
+            - StripPrefix=1
+        # 系统管理服务
+        - id: system-service
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/system/**
+          filters:
+            - StripPrefix=1
+        # 招聘服务
+        - id: recruitment-service
+          uri: http://localhost:8082
+          predicates:
+            - Path=/api/recruitment/**
+          filters:
+            - StripPrefix=1
+        # 学习服务
+        - id: learning-service
+          uri: http://localhost:8083
+          predicates:
+            - Path=/api/learning/**
+          filters:
+            - StripPrefix=1
+        # 申报服务
+        - id: application-service
+          uri: http://localhost:8084
+          predicates:
+            - Path=/api/application/**
+          filters:
+            - StripPrefix=1
+        # CMS服务
+        - id: cms-service
+          uri: http://localhost:8085
+          predicates:
+            - Path=/api/cms/**
+          filters:
+            - StripPrefix=1
+      # 跨域配置
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowedOriginPatterns: "*"
+            allowedMethods: "*"
+            allowedHeaders: "*"
+            allowCredentials: true
+            maxAge: 3600
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
